@@ -1,0 +1,27 @@
+{
+  "name": "cursonodebasico",
+  "version": "0.1.0",
+  "description": "Un chat como el de telegram pero mejor",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielAlejandroArroyo/NodeBasico.git"
+  },
+  "keywords": [
+    "Chat",
+    "telegram",
+    "server"
+  ],
+  "author": "Gabriel Alejandro Arroyo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GabrielAlejandroArroyo/NodeBasico/issues"
+  },
+  "homepage": "https://github.com/GabrielAlejandroArroyo/NodeBasico#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
