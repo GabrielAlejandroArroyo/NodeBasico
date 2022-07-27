@@ -1,5 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+// Aca manjo todas las respuestas y errores
+const respose = require('./network/response');
+const { response } = require('express');
 const router = express.Router();
 
 var app = express();
@@ -21,12 +24,18 @@ router.get('/mensaje', function (req, res) {
     res.header({
         "custom-header": "Nuestro valor personalizado",
     });
-    res.send('lista de mensajes');
+    respose.success(req, res, 'Lista de mensajes');
 });
 
 router.post('/mensaje', function (req, res) {
     //res.send('Mensaje anadido');
-    res.status(201).send([{ error: '', body: 'Creado Correctamanete' }]);
+    if (req.query.error == "ok") {
+        respose.error(req, res, 'Error simulado', 401);
+        //respose.error(req, res, 'Error simulado');
+    } else {
+        respose.success(req, res, 'Creado correctamente', 201);
+    }
+
 });
 
 router.delete('/mensaje', function (req, res) {
@@ -34,7 +43,8 @@ router.delete('/mensaje', function (req, res) {
     console.log(req.body);
     //res.send('Mensaje ' + req.body.text + ' borrado');
     //res.send();
-    res.status(201).send();
+    //res.status(201).send();
+    respose.success(req, res, 'Eliminado correctamente');
 
 
 });
