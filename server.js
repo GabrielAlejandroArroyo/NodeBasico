@@ -25,13 +25,18 @@ router.get('/mensaje', function (req, res) {
 });
 
 router.post('/mensaje', function (req, res) {
-    res.send('Mensaje anadido');
+    //res.send('Mensaje anadido');
+    res.status(201).send([{ error: '', body: 'Creado Correctamanete' }]);
 });
 
 router.delete('/mensaje', function (req, res) {
     console.log(req.query);
     console.log(req.body);
-    res.send('Mensaje ' + req.body.text + ' borrado');
+    //res.send('Mensaje ' + req.body.text + ' borrado');
+    //res.send();
+    res.status(201).send();
+
+
 });
 
 // app.use('/', function (req, res) {
