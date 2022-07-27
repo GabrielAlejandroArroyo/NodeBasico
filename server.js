@@ -30,7 +30,7 @@ router.get('/mensaje', function (req, res) {
 router.post('/mensaje', function (req, res) {
     //res.send('Mensaje anadido');
     if (req.query.error == "ok") {
-        respose.error(req, res, 'Error simulado', 401);
+        respose.error(req, res, 'Error inesperado', 500, 'Es solo una simulacion de los errores');
         //respose.error(req, res, 'Error simulado');
     } else {
         respose.success(req, res, 'Creado correctamente', 201);
