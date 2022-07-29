@@ -11,6 +11,7 @@ function addMessage(user, message) {
             date: new Date(),
         };
         console.log(fullMessage);
+        resolve(fullMessage);
     });
 
 
