@@ -1,7 +1,8 @@
 const express = require('express');
-const response = require('../../network/response');
-
 const router = express.Router();
+
+// Modulos locales
+const response = require('../../network/response');
 
 router.get('/', function (req, res) {
     console.log(req.headers);

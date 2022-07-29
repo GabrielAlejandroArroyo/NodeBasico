@@ -1,7 +1,9 @@
 const express = require('express');
+const router = express.Router();
+
+// Modulos locales
 const response = require('../../network/response');
 const controller = require('./controller');
-const router = express.Router();
 
 router.get('/', function (req, res) {
     console.log(req.headers);
@@ -11,7 +13,11 @@ router.get('/', function (req, res) {
     response.success(req, res, 'Lista de mensajes');
 });
 
+
+
 router.post('/', function (req, res) {
+    //? Enviamos info de el req a el archivo -> controller lo que retorna una promesa
+    //? Después recibimos la response de el archivo response y enviamos success o error    
     controller.addMessage(req.body.user, req.body.message)
         .then((fullMessage) => {
             //response.success(req, res, 'Creado correctamente', 201);
