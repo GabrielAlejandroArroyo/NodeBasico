@@ -14,9 +14,6 @@ router.get('/', function (req, res) {
             response.error(req, res, 'unexpected error', 500, e);
         })
 });
-
-
-
 router.post('/', function (req, res) {
     //? Enviamos info de el req a el archivo -> controller lo que retorna una promesa
     //? Después recibimos la response de el archivo response y enviamos success o error    
@@ -31,6 +28,15 @@ router.post('/', function (req, res) {
 
 });
 
+router.patch('/:id', function (req, res) {
+    controller.updateMessage(req.params.id, req.body.message)
+        .then((data) => {
+            response.success(req, res, data, 200);
+        })
+        .catch(e => {
+            response.error(req, res, 'Error interno', 500, e)
+        });
+})
 router.delete('/', function (req, res) {
     console.log(req.query);
     console.log(req.body);
