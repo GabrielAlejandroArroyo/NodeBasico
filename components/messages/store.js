@@ -37,12 +37,18 @@ async function updateText(id, message) {
     return newMessage;
 }
 
+async function removeMessage(id) {
+    console.log('id ' + id)
+    return Model.deleteOne({
+        _id: id
+    });
+}
+
+
 module.exports = {
     add: addMessage,
     list: getMessages,
-    // get
     updateText: updateText,
-    //delete
+    remove: removeMessage,
 }
 
-//mongodb+srv://<username>:<password>@cluster0.ws0pipe.mongodb.net/test
