@@ -6,7 +6,9 @@ const response = require('../../network/response');
 const controller = require('./controller');
 
 router.get('/', function (req, res) {
-    controller.getMessages()
+    // Si no viene uso ||
+    const filterMessage = req.query.user || null;
+    controller.getMessages(filterMessage)
         .then((messageList) => {
             response.success(req, res, messageList, 200);
         })

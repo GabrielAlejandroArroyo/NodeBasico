@@ -17,9 +17,13 @@ function addMessage(message) {
 
 }
 
-async function getMessages() {
-    //return list;
-    const message = await Model.find()
+async function getMessages(filterUser) {
+    //Creo filtro
+    let filter = {};
+    if (filterUser != null) {
+        filter = { user: filterUser }
+    }
+    const message = await Model.find(filter);
     return message;
 }
 
