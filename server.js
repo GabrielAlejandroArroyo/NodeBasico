@@ -2,8 +2,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// Conexion url de mongo db
+const db = require('./db')
+
 //Modulos locales
 const router = require('./network/routes');
+db('mongodb+srv://db_garroyo:Inetum_2022@cluster0.ws0pipe.mongodb.net/telegrom');
+
 
 //Creando la app
 var app = express();
